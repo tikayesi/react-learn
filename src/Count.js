@@ -1,5 +1,6 @@
 import './App.css';
 import {Component} from "react";
+import CounterButtonPlus from "./CounterButtonPlus";
 
 
 class Count extends Component{
@@ -11,9 +12,9 @@ class Count extends Component{
         }
     }
 
-    increment(){
+    increment = (val) =>{
         this.setState({
-            number : this.state.number + 1
+            number : val
         })
     }
 
@@ -21,7 +22,8 @@ class Count extends Component{
         return(
             <div>
                 <h4>{this.state.number}</h4>
-                <button onClick={this.increment.bind(this)}>+</button>
+                <CounterButtonPlus callback={this.increment}/>
+                <button onClick={this.increment}>+</button>
             </div>
         )
     }
