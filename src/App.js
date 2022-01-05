@@ -1,23 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
 import {Component} from "react";
-import ClickCounter from "./ClickCounter";
-import HoverCounter from "./HoverCounter";
+import NumberSatu from './component/Number1';
+import NumberDua from './component/Number2';
+import { connect } from 'react-redux';
+import ActionType from './redux/reducer/globalActionType';
 
 
 class App extends Component{
     render(){
+        console.log(this.props);
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                 </header>
-                <ClickCounter/>
-                <HoverCounter/>
+                <h1>{this.props.numb}</h1>
+                <button onClick={this.props.handlePlus}>Plus</button>
+                <button onClick={this.props.handleMinus}>Minus</button>
+                <NumberSatu/>
+                <NumberDua/>
             </div>
         );
     }
     }
 
+const mapStateToProps = (state) => {
+    return {
+        numb: state.globalNumber
+    }
+}
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+    return{
+        handlePlus: () => dispatch({type: ActionType.PLUS}),
+        handleMinus: () => dispatch({type: ActionType.MINUS})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
