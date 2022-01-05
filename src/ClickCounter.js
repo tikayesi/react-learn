@@ -12,7 +12,6 @@ class ClickCounter extends Component{
             </div>
         )
     }
-
 }
 
 export default withCounter(ClickCounter);
