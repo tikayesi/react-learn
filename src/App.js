@@ -5,6 +5,7 @@ import NumberSatu from './component/Number1';
 import NumberDua from './component/Number2';
 import { connect } from 'react-redux';
 import ActionType from './redux/reducer/globalActionType';
+import Parent from './component/parent';
 
 
 class App extends Component{
@@ -15,11 +16,12 @@ class App extends Component{
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                 </header>
-                <h1>{this.props.numb}</h1>
+                {/* <h1>{this.props.numb}</h1>
                 <button onClick={this.props.handlePlus}>Plus</button>
                 <button onClick={this.props.handleMinus}>Minus</button>
                 <NumberSatu/>
-                <NumberDua/>
+                <NumberDua/> */}
+                <Parent/>
             </div>
         );
     }
