@@ -1,30 +1,40 @@
 import { Component } from "react";
-import { connect } from "react-redux";
+import { RootContext } from "../App";
 import ActionType from "../redux/reducer/globalActionType";
 
 class NumberSatu extends Component{
     render(){
         return(
-            <div>
-                {this.props.numb}
-                <button onClick={this.props.handlePlus}>Plus</button>
-                <button onClick={this.props.handleMinus}>Minus</button>
-            </div>
+            <RootContext.Consumer>
+                {
+                    value => {
+                        return(
+                            <div>
+                            {value.globalNumber}
+                            <button onClick={this.props.handlePlus}>Plus</button>
+                            <button onClick={this.props.handleMinus}>Minus</button>
+                        </div>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        numb: state.globalNumber
-    }
-}
+export default NumberSatu;
 
-const mapDispatchToProps = (dispatch) => {
-    return{
-        handlePlus: () => dispatch({type: ActionType.PLUS}),
-        handleMinus: () => dispatch({type: ActionType.MINUS})
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         numb: state.globalNumber
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NumberSatu);
+// const mapDispatchToProps = (dispatch) => {
+//     return{
+//         handlePlus: () => dispatch({type: ActionType.PLUS}),
+//         handleMinus: () => dispatch({type: ActionType.MINUS})
+//     }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(NumberSatu);
