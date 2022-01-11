@@ -7,18 +7,18 @@ class NumberList2 extends Component{
         list: []
     }
 
-    handleChange(event){
+    handleChange=(event)=>{
         this.setState({newItem : event.target.value})
     }
 
-    handleSubmit (event) {
+    handleSubmit = (event) => {
             const list = [...this.state.list];
             list.push(this.state.newItem)
         this.setState({list : list})
         event.preventDefault()
     }
 
-    handleDelete(e) {
+    handleDelete = (e) => {
         console.log(e.target.value)
         const list = [...this.state.list];
        let test = list.filter(val =>  val !== e.target.value.toString())
@@ -37,12 +37,16 @@ class NumberList2 extends Component{
 
         return(
             <div>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                     <input type="text" name="name" value={this.state.newItem}
                     onChange={e => this.handleChange(e)}/>
                     </label>
-                    <input type="submit" value="Submit" onClick={(e) => this.handleSubmit(e)}/>
+                    <input type="submit" value="Submit" 
+                    // onClick={(e) => this.handleSubmit(e)}
+                    />
                 <ul>{listItem}</ul>
+                </form>
             </div>
         )
     }
