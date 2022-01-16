@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import {Component} from "react";
-import NumberList from "./NumberList";
-import NumberList2 from "./NumberList2";
-
+import FormFormik from './FormFormik';
+// formik + yup
+// https://medium.com/javascript-indonesia-community/validasi-form-pada-aplikasi-react-dengan-formik-yup-afef7ac2bbb1
 
 class App extends Component{
 
@@ -13,7 +13,7 @@ class App extends Component{
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                 </header>
-                    <NumberList2/>
+                    <FormFormik/>
             </div>
         );
     }
