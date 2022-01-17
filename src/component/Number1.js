@@ -10,9 +10,9 @@ class NumberSatu extends Component{
                     value => {
                         return(
                             <div>
-                            {value.globalNumber}
-                            <button onClick={this.props.handlePlus}>Plus</button>
-                            <button onClick={this.props.handleMinus}>Minus</button>
+                            {value.state.globalNumber}
+                            <button onClick={() => value.dispatch({type : "PLUS"})}>Plus</button>
+                            <button onClick={() => value.dispatch({type : "MINUS"})}>Minus</button>
                         </div>
                         )
                     }

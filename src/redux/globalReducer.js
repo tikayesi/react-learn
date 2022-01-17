@@ -1,7 +1,7 @@
 import ActionType from "./reducer/globalActionType";
 
 const globalState = {
-    globalNumber : 10
+    globalNumber : 5
   }
   
   //reducer

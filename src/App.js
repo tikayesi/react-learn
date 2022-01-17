@@ -12,12 +12,32 @@ const Provider = RootContext.Provider;
 
 class App extends Component{
     state = {
-        globalNumber: 10
+        globalNumber: 5
     }
+
+    dispatch = (action) => {
+        if(action.type === "PLUS"){
+            return this.setState({
+                globalNumber : this.state.globalNumber + 1
+            })
+        }
+        if(action.type === "MINUS"){
+           return  this.setState({
+                globalNumber : this.state.globalNumber - 1
+            })
+        }
+
+    }
+
     render(){
         console.log(this.props);
         return (
-            <Provider value={this.state}>
+            <Provider value={
+                {
+                    state : this.state,
+                    dispatch : this.dispatch
+                }
+            }>
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
@@ -26,7 +46,7 @@ class App extends Component{
                 <button onClick={this.props.handlePlus}>Plus</button>
                 <button onClick={this.props.handleMinus}>Minus</button> */}
                 <NumberSatu/>
-                {/* <NumberDua/> */}
+                 <NumberDua/>
                 {/* <Parent/> */}
             </div>
             </Provider>
