@@ -10,28 +10,28 @@ class NumberList2 extends Component{
     }
 
     handleChange=(event)=>{
-        // if(event.target.value.length >= 5){
-        //     this.setState({
-        //         isValid : false,
-        //         errorName : ""
-        //     })
-        // }else{
-        //     this.setState({
-        //         isValid : true,
-        //         errorName : "5 min length"
-        //     })
-        // }
-        if(!event.target.value.match(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/)){
-                     this.setState({
-                isValid : true,
-                errorName : "format email tidak sesuai"
+        if(event.target.value.length >= 5){
+            this.setState({
+                isValid : false,
+                errorName : ""
             })
         }else{
             this.setState({
                 isValid : true,
-                errorName : ""
+                errorName : "5 min length"
             })
         }
+        // if(!event.target.value.match(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/)){
+        //              this.setState({
+        //         isValid : true,
+        //         errorName : "format email tidak sesuai"
+        //     })
+        // }else{
+        //     this.setState({
+        //         isValid : true,
+        //         errorName : ""
+        //     })
+        // }
         this.setState({newItem : event.target.value})
     }
 
@@ -73,6 +73,11 @@ class NumberList2 extends Component{
                     // onClick={(e) => this.handleSubmit(e)}
                     />
                 <ul>{listItem}</ul>
+                <ul>{this.state.list.length !== 0 ? this.state.list.map((number) => {
+                   console.log(number);
+                   let keyVal = number + Math.random()
+                   return <li key={keyVal} value={number} onClick={this.handleDelete}>{number}</li>
+               }) : <p>There is no value</p>}</ul>
                 </form>
             </div>
         )
