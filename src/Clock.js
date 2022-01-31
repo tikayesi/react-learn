@@ -10,7 +10,7 @@ class Clock extends Component{
     }
 
     componentDidMount() {
-        // berfungsi untuk memanggil sebuah fungsi secara terus menerus berdasarkan
+        // berfungsi untuk memanggil sebuah fungsi secara terus menerus ketika semua komponen sudah terbentuk
         console.log("Component did mount called");
         this.timerID = setInterval(
             () => this.tick(), 1000
@@ -53,7 +53,8 @@ class Clock extends Component{
         console.log("get derivied");
     }
 
-    // getSnapshotBeforeUpdate() is another new lifecycle method introduced in React recently. This will be a safer alternative to the previous lifecycle method componentWillUpdate().
+    // getSnapshotBeforeUpdate() is another new lifecycle method introduced in React recently.
+    // This will be a safer alternative to the previous lifecycle method componentWillUpdate().
     getSnapshotBeforeUpdate(){
         console.log("snapshot");
     }
