@@ -9,11 +9,12 @@ class Clock extends Component{
         }
     }
 
+    // componentDidMount akan terpanggil setelah komponen terbentuk hasil dari render
     componentDidMount() {
-        // berfungsi untuk memanggil sebuah fungsi secara terus menerus ketika semua komponen sudah terbentuk
+        // set interval berfungsi untuk memanggil sebuah fungsi secara terus menerus dengan waktu tertentu
         console.log("Component did mount called");
         this.timerID = setInterval(
-            () => this.tick(), 1000
+            () => this.tick(), 3000
         )
     }
 
