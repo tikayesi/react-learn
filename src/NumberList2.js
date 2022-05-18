@@ -51,14 +51,14 @@ class NumberList2 extends Component{
     }
 
     render() {
-        let listItem = <p>There is no value</p>;
-           if(this.state.list.length !== 0) {
-               listItem = this.state.list.map((number) => {
-                   console.log(number);
-                   let keyVal = number + Math.random()
-                   return <li key={keyVal} value={number} onClick={this.handleDelete}>{number}</li>
-               })
-           }
+        // let listItem = <p>There is no value</p>;
+        //    if(this.state.list.length !== 0) {
+        //        listItem = this.state.list.map((number) => {
+        //            console.log(number);
+        //            let keyVal = number + Math.random()
+        //            return <li key={keyVal} value={number} onClick={this.handleDelete}>{number}</li>
+        //        })
+        //    }
 
         return(
             <div>
@@ -72,7 +72,7 @@ class NumberList2 extends Component{
                     <input disabled={this.state.isValid} type="submit" value="Submit" 
                     // onClick={(e) => this.handleSubmit(e)}
                     />
-                <ul>{listItem}</ul>
+                {/* <ul>{listItem}</ul> */}
                 <ul>{this.state.list.length !== 0 ? this.state.list.map((number) => {
                    console.log(number);
                    let keyVal = number + Math.random()
